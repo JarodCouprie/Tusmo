@@ -1,0 +1,105 @@
+:root{
+    --background-color: #f3f3f3;
+    --text-color: #153e70;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body{
+    background: var(--background-color);
+    color: var(--text-color);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+section{
+    width: 800px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.section-1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tusmo-item{
+    width: 100px;
+    height: 100%;
+    border: 2px solid var(--text-color);
+    border-radius: 5px;
+}
+
+#section-2{
+    height: 50px;
+    display: flex;
+}
+
+form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#letter-try{
+    width: 80%;
+    height: 50px;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 0 10px;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+}
+
+#letter-try::placeholder{
+    color: var(--text-color);
+}
+
+#submit-button{
+    width: 20%;
+    height: 50px;
+    cursor: pointer;
+    border: solid 2px var(--text-color);
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in-out;
+    background: var(--text-color);
+    color: var(--background-color);
+    border-left: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#submit-button:hover{
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+#section-3{
+    height: 50px;
+    border: solid 2px var(--text-color);
+    border-radius: 5px;
+    background-color: red;
+}
+
+#tentative{
+    width: 100%;
+    height: 100%;
+    background: green;
+    color: var(--background-color);
+}
