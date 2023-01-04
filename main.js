@@ -11,3 +11,17 @@ function newWord(){
 
 let body = document.querySelector("body");
 body.onload = newWord();
+
+const submitButton = document.querySelector("#submit-button")
+submitButton.addEventListener("submit", e => onSubmit(e));
+
+function onSubmit(e){
+    e.preventDefault();
+    const form = e.currentTarget;
+    const r = new FormData(form).get("title").toString().trim();
+    if (r === ""){
+        return
+    };
+    console.log(r);
+    form.reset();
+};
