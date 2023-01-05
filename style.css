@@ -1,6 +1,7 @@
 :root{
     --background-color: #f3f3f3;
     --text-color: #153e70;
+    --smooth-color: #153e70b7;
 }
 
 *{
@@ -86,8 +87,7 @@ form{
 }
 
 #submit-button:hover{
-    background: var(--background-color);
-    color: var(--text-color);
+    background: var(--smooth-color);
 }
 
 #section-3{

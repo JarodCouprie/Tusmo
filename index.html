@@ -8,7 +8,7 @@
     <script type="module" src="./main.js"></script>
     <title>Tutututusmo !</title>
 </head>
-<body onload="newWord()">
+<body>
     <section id="section-3">
         <article id="tentative">
         </article>
@@ -27,8 +27,10 @@
     </section>
     <section id="section-2">
         <form>
-            <input type="text" id="letter-try" placeholder="Entrez une lettre" required>
-            <input type="submit" id="submit-button" value="Tester">
+            <input type="text" id="letter-try" name="letter-try" placeholder="Entrez une lettre" required>
+            <button id="submit-button">
+                Tester
+            </button>
         </form>
     </section>
 </body>
