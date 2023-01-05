@@ -8,9 +8,15 @@ function newWord(){
     return randomTab;
 }
 
+
+    const tusmoContainer = document.querySelector("#tusmo-container");
+    const tusmoItems = tusmoContainer.querySelectorAll(".tusmo-item");
+    
+
+
 const toto = newWord();
-// let body = document.querySelector("body");
-// body.onload = newWord();
+
+
 
 document.querySelector("form").addEventListener("submit", (event) =>{
     event.preventDefault();
@@ -21,18 +27,9 @@ document.querySelector("form").addEventListener("submit", (event) =>{
         return;
     }
     form.reset();
-    console.log(letterTried);
-    console.log(toto);
-
-    toto.forEach((letter) => {
-        if (letter === letterTried){
-            console.log("bingo");
-        }else{
-            console.log("nope");
-        }
-    });
-
-
+    for (let i = 0; i < tusmoItems.length; i++){
+        tusmoItems[i].innerText = toto[i];
+    }
 });
 
 

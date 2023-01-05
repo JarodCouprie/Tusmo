@@ -30,7 +30,7 @@ section{
     align-items: center;
 }
 
-.section-1{
+#tusmo-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,6 +41,10 @@ section{
     height: 100%;
     border: 2px solid var(--text-color);
     border-radius: 5px;
+    display: grid;
+    place-items: center;
+    font-size: 3rem;
+    text-transform: uppercase;
 }
 
 #section-2{
