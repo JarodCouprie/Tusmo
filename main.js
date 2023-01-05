@@ -11,7 +11,6 @@ function newWord(){
 
     const tusmoContainer = document.querySelector("#tusmo-container");
     const tusmoItems = tusmoContainer.querySelectorAll(".tusmo-item");
-    const tested = document.querySelector("#tested");
     
 const toto = newWord();
 
@@ -38,7 +37,6 @@ document.querySelector("form").addEventListener("submit", (event) =>{
             console.log("You lost 1 heatlh point");
             health--;
         };
-        tested.innerText = letterTried;
     };
     console.log(count);
     console.log(health);

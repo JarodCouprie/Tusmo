@@ -1,7 +1,7 @@
 :root{
-    --background-color: #f3f3f3;
+    --background-color: #000;
     --text-color: #153e70;
-    --smooth-color: #153e70b7;
+    --smooth-color: #2d80e6;
 }
 
 *{
@@ -16,7 +16,12 @@
 body{
     background: var(--background-color);
     color: var(--text-color);
-    padding: 30px;
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+}
+
+main{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,21 +98,156 @@ form{
     background: var(--smooth-color);
 }
 
-#hp-bar{
+#tested{
+    font-size: 3rem;
+}
+
+#key-container{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-template-areas:
+        "key-1 key-2 key-3 key-4 key-5 key-6 key-7 key-8 key-9 key-10"
+        "key-11 key-12 key-13 key-14 key-15 key-16 key-17 key-18 key-19 key-20"
+        ". . key-21 key-22 key-23 key-24 key-25 key-26 . .";
+    gap: 5px;
+}
+
+.key{
+    width: 50px;
     height: 50px;
     border: solid 2px var(--text-color);
+    display: grid;
+    place-items: center;
     border-radius: 5px;
-    background-color: red;
+    text-transform: uppercase;
+}
+
+.key:hover{
+    background: var(--text-color);
+    color: white;
+    cursor: pointer;
+}
+
+/*-----Keys areas-----*/
+
+#key-1{
+    grid-area: key-1;
+}
+#key-2{
+    grid-area: key-2;
+}
+#key-3{
+    grid-area: key-3;
+}
+#key-4{
+    grid-area: key-4;
+}
+#key-5{
+    grid-area: key-5;
+}
+#key-6{
+    grid-area: key-6;
+}
+#key-7{
+    grid-area: key-7;
+}
+#key-8{
+    grid-area: key-8;
+}
+#key-9{
+    grid-area: key-9;
+}
+#key-10{
+    grid-area: key-10;
+}
+#key-11{
+    grid-area: key-11;
+}
+#key-12{
+    grid-area: key-12;
+}
+#key-13{
+    grid-area: key-13;
+}
+#key-14{
+    grid-area: key-14;
+}
+#key-15{
+    grid-area: key-15;
+}
+#key-16{
+    grid-area: key-16;
+}
+#key-17{
+    grid-area: key-17;
+}
+#key-18{
+    grid-area: key-18;
+}
+#key-19{
+    grid-area: key-19;
+}
+#key-20{
+    grid-area: key-20;
+}
+#key-21{
+    grid-area: key-21;
+}
+#key-22{
+    grid-area: key-22;
+}
+#key-23{
+    grid-area: key-23;
+}
+#key-24{
+    grid-area: key-24;
+}
+#key-25{
+    grid-area: key-25;
+}
+#key-26{
+    grid-area: key-26;
+}
+
+#new-game{
+    display: flex;
+}
+
+#hp-bar{
+    width: 80%;
+    height: 50px;
+    font-size: 1.5rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
 }
 
 #attempt{
-    width: 100%;
+    width: 110%;
     height: 100%;
-    background: green;
+    background: rgb(129, 2, 8);
     color: var(--background-color);
     transition: width 0.5s ease-in-out;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-#tested{
-    font-size: 3rem;
+#new-word{
+    width: 20%;
+    height: 50px;
+    cursor: pointer;
+    border: solid 2px var(--text-color);
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in-out;
+    background: var(--text-color);
+    color: var(--background-color);
+    border-left: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#new-word:hover{
+    background: var(--smooth-color);
 }
