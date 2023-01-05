@@ -11,12 +11,14 @@ function newWord(){
 
     const tusmoContainer = document.querySelector("#tusmo-container");
     const tusmoItems = tusmoContainer.querySelectorAll(".tusmo-item");
+    const tested = document.querySelector("#tested");
     
-
-
 const toto = newWord();
 
+console.log(toto);
 
+let count = 0;
+let health = 100;
 
 document.querySelector("form").addEventListener("submit", (event) =>{
     event.preventDefault();
@@ -27,8 +29,21 @@ document.querySelector("form").addEventListener("submit", (event) =>{
         return;
     }
     form.reset();
+
     for (let i = 0; i < tusmoItems.length; i++){
-        tusmoItems[i].innerText = toto[i];
+        if (letterTried === toto[i]){
+            tusmoItems[i].innerText = toto[i];
+            count++;
+        }else{
+            console.log("You lost 1 heatlh point");
+            health--;
+        };
+        tested.innerText = letterTried;
+    };
+    console.log(count);
+    console.log(health);
+    if (count >= 7){
+        console.log("win");
     }
 });
 

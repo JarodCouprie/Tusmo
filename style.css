@@ -47,9 +47,8 @@ section{
     text-transform: uppercase;
 }
 
-#section-2{
+#submit-section{
     height: 50px;
-    display: flex;
 }
 
 form{
@@ -94,16 +93,21 @@ form{
     background: var(--smooth-color);
 }
 
-#section-3{
+#hp-bar{
     height: 50px;
     border: solid 2px var(--text-color);
     border-radius: 5px;
     background-color: red;
 }
 
-#tentative{
+#attempt{
     width: 100%;
     height: 100%;
     background: green;
     color: var(--background-color);
+    transition: width 0.5s ease-in-out;
+}
+
+#tested{
+    font-size: 3rem;
 }
