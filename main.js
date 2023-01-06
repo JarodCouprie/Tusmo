@@ -9,40 +9,47 @@ function newWord(){
 }
 
 
-    const tusmoContainer = document.querySelector("#tusmo-container");
-    const tusmoItems = tusmoContainer.querySelectorAll(".tusmo-item");
-    
-const toto = newWord();
+const tusmoContainer = document.querySelector("#tusmo-container");
+const tusmoItems = tusmoContainer.querySelectorAll(".tusmo-item");
+const keyboardKey = document.querySelector("#key-container");
+const keyLetter = keyboardKey.querySelectorAll(".key");
+const word = newWord();
 
-console.log(toto);
+console.log(word);
 
 let count = 0;
-let health = 100;
 
 document.querySelector("form").addEventListener("submit", (event) =>{
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
-    let letterTried = data.get("letter-try").trim();
+    let letterTried = data.get("letter-try").trim().toLowerCase();
     if (letterTried.length > 1){
         return;
     }
     form.reset();
 
     for (let i = 0; i < tusmoItems.length; i++){
-        if (letterTried === toto[i]){
-            tusmoItems[i].innerText = toto[i];
+        if (letterTried === word[i]){
+            tusmoItems[i].innerText = word[i];
             count++;
+            for (let j = 0; j < keyLetter.length; j++){
+                if (keyLetter[j].className === "key "+letterTried){
+                    keyLetter[j].classList.add("right-key");
+                };
+            };
         }else{
-            console.log("You lost 1 heatlh point");
-            health--;
+            for (let j = 0; j < keyLetter.length; j++){
+                if (keyLetter[j].className === "key "+letterTried){
+                    keyLetter[j].classList.add("wrong-key");
+                };
+            };
         };
     };
-    console.log(count);
-    console.log(health);
+
     if (count >= 7){
-        console.log("win");
-    }
+        console.log("WIN");
+    };
 });
 
 
