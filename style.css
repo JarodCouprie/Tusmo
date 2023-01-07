@@ -1,8 +1,8 @@
 :root{
-    --background-color: #000;
-    --text-color: #153e70;
-    --smooth-color: #2d80e6;
-    --light-color: rgb(234, 239, 255) ;
+    --background-color: #fff;
+    --text-color: #000;
+    --smooth-color: #7899D4;
+    --light-color: #eaefff;
 }
 
 *{
@@ -30,6 +30,11 @@ main{
     gap: 50px;
 }
 
+h1{
+    text-transform: uppercase;
+    font-size: 5rem;
+}
+
 section{
     width: 800px;
     height: 100px;
@@ -52,7 +57,7 @@ section{
     place-items: center;
     font-size: 3rem;
     text-transform: uppercase;
-    color: var(--light-color);
+    color: var(--text-color);
 }
 
 #submit-section{
@@ -98,7 +103,8 @@ form{
 }
 
 #submit-button:hover{
-    background: var(--smooth-color);
+    background: var(--background-color);
+    color: var(--text-color);
 }
 
 #tested{
@@ -128,7 +134,7 @@ form{
 
 .key:hover{
     background: var(--text-color);
-    color: var(--light-color);
+    color: var(--background-color);
     cursor: pointer;
 }
 
@@ -244,5 +250,6 @@ form{
 }
 
 #new-word:hover{
-    background: var(--smooth-color);
+    background: var(--background-color);
+    color: var(--text-color);
 }
