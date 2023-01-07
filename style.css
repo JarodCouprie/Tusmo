@@ -1,8 +1,9 @@
 :root{
-    --background-color: #fff;
-    --text-color: #000;
-    --smooth-color: #7899D4;
-    --light-color: #eaefff;
+    --background-color: #e6ccb9;
+    --text-color: #471323;
+    --light-color: #fff;
+    --green-right: #324F2C;
+    --red-wrong: #FF9199;
 }
 
 *{
@@ -42,13 +43,13 @@ section{
     align-items: center;
 }
 
-#tusmo-container{
+#letterDisplayedContainer{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.tusmo-item{
+.letterDisplayed{
     width: 100px;
     height: 100%;
     border: 2px solid var(--text-color);
@@ -71,7 +72,7 @@ form{
     align-items: center;
 }
 
-#letter-try{
+#key-try{
     width: 80%;
     height: 50px;
     font-size: 1.5rem;
@@ -84,8 +85,12 @@ form{
     border: 2px solid var(--text-color);
 }
 
-#letter-try::placeholder{
+#key-try::placeholder{
     color: var(--text-color);
+}
+
+#key-try:focus{
+    background: var(--light-color);
 }
 
 #submit-button{
@@ -96,14 +101,14 @@ form{
     font-size: 1.5rem;
     transition: all 0.2s ease-in-out;
     background: var(--text-color);
-    color: var(--background-color);
+    color: var(--light-color);
     border-left: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
 #submit-button:hover{
-    background: var(--background-color);
+    background: var(--light-color);
     color: var(--text-color);
 }
 
@@ -132,9 +137,9 @@ form{
     text-transform: uppercase;
 }
 
-.key:hover{
+.key:not(.wrong-key,.right-key):hover{
     background: var(--text-color);
-    color: var(--background-color);
+    color: var(--light-color);
     cursor: pointer;
 }
 
@@ -220,21 +225,14 @@ form{
 }
 
 .right-key{
-    background: #177e17;
+    background: var(--green-right);
     color: var(--light-color);
-}
-
-.right-key:hover{
-    background: #177e17;
+    border: 2px solid var(--green-right);
 }
 
 .wrong-key{
-    background: #a1210a;
+    background: var(--text-color);
     color: var(--light-color);
-}
-
-.wrong-key:hover{
-    background: #a1210a;
 }
 
 #new-word{
@@ -245,11 +243,11 @@ form{
     font-size: 1.5rem;
     transition: all 0.2s ease-in-out;
     background: var(--text-color);
-    color: var(--background-color);
+    color: var(--light-color);
     border-radius: 5px;
 }
 
 #new-word:hover{
-    background: var(--background-color);
+    background: var(--light-color);
     color: var(--text-color);
 }
