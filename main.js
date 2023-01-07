@@ -9,55 +9,73 @@ function newWord(){
 }
 
 
-const tusmoContainer = document.querySelector("#tusmo-container");
-const tusmoItems = tusmoContainer.querySelectorAll(".tusmo-item");
+const letterDisplayedContainer = document.querySelector("#tusmo-container");
+const letterDisplayed = letterDisplayedContainer.querySelectorAll(".tusmo-item");
+
 const keyboardKey = document.querySelector("#key-container");
 const keyLetter = keyboardKey.querySelectorAll(".key");
-const word = newWord();
-const allLettersTried = [];
+
+let word = newWord();
+let alreadyTriedKeys = [];
 console.log(word);
 
 let count = 0;
 
+function removeClass(element, classToRemove){
+    element.classList.remove(classToRemove);
+};
 
+document.querySelector("#new-word").addEventListener("click", () =>{
+    word = newWord();
+    alreadyTriedKeys = [];
+    count = 0;
+    for (let i = 0; i < letterDisplayed.length; i++){
+        if(letterDisplayed[i].innerText !== ""){
+            letterDisplayed[i].innerText = "";
+        };
+    };
+    for (let i = 0; i < keyLetter.length; i++){
+        removeClass(keyLetter[i],"wrong-key");
+        removeClass(keyLetter[i], "right-key");
+    };
+});
 
 
 document.querySelector("form").addEventListener("submit", (event) =>{
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
-    let letterTried = data.get("letter-try").trim().toLowerCase();
-    if (letterTried.length > 1){
+    let keyTried = data.get("letter-try").trim().toLowerCase();
+    if (keyTried.length > 1){
         return;
     }
     form.reset();
 
     function letterInKeyboard(nodeListKey, hasClassName, toAddClassName){
         for (let i = 0; i < nodeListKey.length; i++){
-            if (nodeListKey[i].className === hasClassName+letterTried){
+            if (nodeListKey[i].className === hasClassName+keyTried){
                 nodeListKey[i].classList.add(toAddClassName);
             };
         };
     }
-    if (allLettersTried.includes(letterTried)){
-        console.log(letterTried+" has alredy been used")
+    if (alreadyTriedKeys.includes(keyTried)){
+        console.log(keyTried+" has alredy been used")
     }else{
-        if (word.includes(letterTried)){
-            for (let i = 0; i < tusmoItems.length; i++){
-                if (letterTried === word[i]){
-                    tusmoItems[i].innerText = word[i];
+        if (word.includes(keyTried)){
+            for (let i = 0; i < letterDisplayed.length; i++){
+                if (keyTried === word[i]){
+                    letterDisplayed[i].innerText = word[i];
                     count++;
-                    
                 };
             };
-            allLettersTried.push(letterTried);
+            alreadyTriedKeys.push(keyTried);
             letterInKeyboard(keyLetter, "key ", "right-key");
         }else{
             letterInKeyboard(keyLetter, "key ", "wrong-key");
-            allLettersTried.push(letterTried);
+            alreadyTriedKeys.push(keyTried);
         };
     };
-    console.log(allLettersTried);
+    console.log(alreadyTriedKeys);
     if (count >= 7){
         console.log("WIN");
     };
