@@ -14,10 +14,13 @@ const tusmoItems = tusmoContainer.querySelectorAll(".tusmo-item");
 const keyboardKey = document.querySelector("#key-container");
 const keyLetter = keyboardKey.querySelectorAll(".key");
 const word = newWord();
-
+const allLettersTried = [];
 console.log(word);
 
 let count = 0;
+
+
+
 
 document.querySelector("form").addEventListener("submit", (event) =>{
     event.preventDefault();
@@ -29,24 +32,32 @@ document.querySelector("form").addEventListener("submit", (event) =>{
     }
     form.reset();
 
-    for (let i = 0; i < tusmoItems.length; i++){
-        if (letterTried === word[i]){
-            tusmoItems[i].innerText = word[i];
-            count++;
-            for (let j = 0; j < keyLetter.length; j++){
-                if (keyLetter[j].className === "key "+letterTried){
-                    keyLetter[j].classList.add("right-key");
-                };
-            };
-        }else{
-            for (let j = 0; j < keyLetter.length; j++){
-                if (keyLetter[j].className === "key "+letterTried){
-                    keyLetter[j].classList.add("wrong-key");
-                };
+    function letterInKeyboard(nodeListKey, hasClassName, toAddClassName){
+        for (let i = 0; i < nodeListKey.length; i++){
+            if (nodeListKey[i].className === hasClassName+letterTried){
+                nodeListKey[i].classList.add(toAddClassName);
             };
         };
+    }
+    if (allLettersTried.includes(letterTried)){
+        console.log(letterTried+" has alredy been used")
+    }else{
+        if (word.includes(letterTried)){
+            for (let i = 0; i < tusmoItems.length; i++){
+                if (letterTried === word[i]){
+                    tusmoItems[i].innerText = word[i];
+                    count++;
+                    
+                };
+            };
+            allLettersTried.push(letterTried);
+            letterInKeyboard(keyLetter, "key ", "right-key");
+        }else{
+            letterInKeyboard(keyLetter, "key ", "wrong-key");
+            allLettersTried.push(letterTried);
+        };
     };
-
+    console.log(allLettersTried);
     if (count >= 7){
         console.log("WIN");
     };
